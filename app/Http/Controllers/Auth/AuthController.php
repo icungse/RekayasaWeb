@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Validator;
@@ -22,6 +23,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    protected $redirectPath = '/users/login';
 
     /**
      * Create a new authentication controller instance.
