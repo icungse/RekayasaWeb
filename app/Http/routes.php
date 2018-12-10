@@ -23,5 +23,8 @@ Route::get('users/login', 'Auth\AuthController@getLogin');
 Route::post('users/login', 'Auth\AuthController@postLogin');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'), function () {
-    Route::get('users', 'UsersController@index');
+    Route::get('users', ['as' => 'admin.user.index', 'uses' => 'UsersController@index']);
+    Route::get('roles', 'RolesController@index');
+    Route::get('roles/create', 'RolesController@create');
+    Route::post('roles/create', 'RolesController@store');
 });
